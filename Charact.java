@@ -1,4 +1,3 @@
-import lingologs.Charact;
 import lingologs.Script;
 import lingologs.Texture;
 
@@ -6,7 +5,7 @@ import java.util.Map;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
-public class Main
+public class Charact
 {
     // Hinweis:
     // * Die Bibliothek 'LingoLibry' muss als JAR eingebunden werden
@@ -52,13 +51,13 @@ public class Main
             System.out.println();
 
             // Erzeugung (selten direkt, meist indirekt über Script-Erzeugung)
-            Charact
-                C1 = new Charact('A'),
-                C2 = new Charact("\uD83D\uDE00"),   // 😀
-                C3 = new Charact(0x1F600),          // 😀
-                C4 = Charact.of('A'),
-                C5 = Charact.of("\uD83E\uDD21"),    // 🤡
-                C6 = Charact.of(0x1F921);           // 🤡
+            lingologs.Charact
+                C1 = new lingologs.Charact('A'),
+                C2 = new lingologs.Charact("\uD83D\uDE00"),   // 😀
+                C3 = new lingologs.Charact(0x1F600),          // 😀
+                C4 = lingologs.Charact.of('A'),
+                C5 = lingologs.Charact.of("\uD83E\uDD21"),    // 🤡
+                C6 = lingologs.Charact.of(0x1F921);           // 🤡
             /*
             Charact
                 D1 = new Charact('\uD83E'),             // ungepaarte bzw.
@@ -130,7 +129,7 @@ public class Main
                     boolean E1 = (L == 4 && M == 3 && N == 3);      // true
 
                     char C1 = R.charAt(1), C2 = R.charAt(2);        // ungültige Surrogate 0xD83D / 0xDE00
-                    Charact D1 = S.at(1), D2 = S.at(2);        // Kodepunkte 0x1F600 ('😀') / 0x0057 ('W')
+                    lingologs.Charact D1 = S.at(1), D2 = S.at(2);        // Kodepunkte 0x1F600 ('😀') / 0x0057 ('W')
 
                     boolean
                         E2 = (C1 == 0xD83D && C2 == 0xDE00) &&
@@ -203,7 +202,7 @@ public class Main
 
                 int X = 2, I = R.offsetByCodePoints(0, X);  // UTF32-Index X = 2 vs. UTF16-Index I = 3!
                 char CR = R.charAt(I);  // Zugriff in linearer Zeit (ineffizienter)
-                Charact CS = S.at(X);   // Zugriff in konstanter Zeit (effizienter)
+                lingologs.Charact CS = S.at(X);   // Zugriff in konstanter Zeit (effizienter)
 
                 System.out.println("Index UTF16: "+I+"\tChar UTF16: "+CR);
                 System.out.println("Index UTF32: "+X+"\tCharact UTF32: "+CS+"\r\n");
@@ -260,7 +259,7 @@ public class Main
                     T2 = S.extro(3, Script.NIX),                // delete
                     T3 = S.extro(0, new Script("IUM")),    // insert
                     T4 = S.part(3, 3, Script.SP),             // insert
-                    T5 = S.at(6, Charact.R);                    // replace
+                    T5 = S.at(6, lingologs.Charact.R);                    // replace
 
                 boolean
                     E2 = T1.equals(S3) && T2.equals(S3.rotate(3)) &&
@@ -299,12 +298,12 @@ public class Main
                 // Chronogramm-Erzeugung
                 Script				        // Chronogramm für 'Great Fire of London' 1666
                     U = new Script("Lord Have Merci Vpon Vs");	// L+D+V+M+C+I+V+V
-                Map<Charact, Integer>
-                    M = Map.of(Charact.I, 1, Charact.V, 5, Charact.X, 10,
-                               Charact.L, 50, Charact.C, 100,
-                               Charact.D, 500, Charact.M, 1000);
+                Map<lingologs.Charact, Integer>
+                    M = Map.of(lingologs.Charact.I, 1, lingologs.Charact.V, 5, lingologs.Charact.X, 10,
+                               lingologs.Charact.L, 50, lingologs.Charact.C, 100,
+                               lingologs.Charact.D, 500, lingologs.Charact.M, 1000);
 
-                int N = U.map(Charact::toUpper)
+                int N = U.map(lingologs.Charact::toUpper)
                          .filter(M::containsKey).map(M::get)
                          .merge(0, Integer::sum);
                 boolean E2 = (N == 1666);	// dasselbe wie M+D+C+L+X+V+I (!)

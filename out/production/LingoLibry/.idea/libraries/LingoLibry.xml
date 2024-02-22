@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="LingoLibry">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../06_CSV_JSONS/CSV_JSONS/lib/LingoLibry.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../06_CSV_JSONS/CSV_JSONS/lib/LingoLibry.jar!/" />
+    </SOURCES>
+  </library>
+</component>
